@@ -1,0 +1,98 @@
+CARETE
+TILDE 
+cross orgin 
+dev dependicy
+minfing 
+bundling 
+
+
+project deendecy  means our whole react app is not feasilble for prrpduction we need lot of packages  it needs super power for production it are istalled using npm  and there are two types of dependcy dev dependcy and global dependcy 
+
+now cartet and tilde  are to specify if we want to upgrade our depency to next version or not 
+
+so there are two files right package.json and package lock .json 
+and if we using tilde and carlet then it will iverright the version automatically in package.json 
+but if  due to that our code somwtikes wont wrk in production and work on local then we will not have idea of what vrsion did we use duing development because in ackage.hson its overwriiten so stop over writing to know what version wa sthere befores eending to production we paclakgelocak.json
+
+During development, if you specified Parcel version 18.2 in your package.json and npm installed this version, package-lock.json will record the exact version (18.2) that was installed. This ensures that every subsequent npm install will use exactly Parcel version 18.2, regardless of updates to package.json.
+
+Now, moving to production: if you deploy your application and it works well with Parcel 18.2, but later on, Parcel updates to version 18.3 and you encounter issues in production, you can refer to package-lock.json.
+ok now it will refer to 18.2 and if some of the things chnages from 18.2 to 18.3 then we can directly chnagein code by refering 
+
+
+
+
+Tilde (~):
+The tilde (~) character in package.json allows npm to update packages to the most recent patch version (the third number) within the same minor version (the second number). Here's how it works:
+
+Format: ~major.minor.patch
+Example: If you specify "~1.2.3", npm will allow updating to any version that is 1.2.x (where x is the latest available patch version). So, 1.2.4, 1.2.5, etc., would be acceptable updates, but 1.3.0 would not be.
+
+
+
+Caret (^):
+The caret (^) character in package.json is more flexible and allows npm to update packages to the most recent minor version (the second number) within the same major version (the first number). Here's how it works:
+
+Format: ^major.minor.patch
+Example: If you specify "^1.2.3", npm will allow updating to any version that is 1.x.x (where x is the latest available minor and patch versions). So, 1.3.0, 1.4.0, etc., would be acceptable updates, but 2.0.0 would not be.
+
+
+
+
+y is react fast?
+
+react have two core functionality virtual dom and reconnscaltion along wit that for a prodution ready app Bundlers like Webpack or Parcel package and optimize your code, reducing its size and improving load times by removing unnecessary parts and managing dependencies efficiently. Techniques like code splitting and lazy loading ensure that only necessary code is loaded when needed, further enhancing performance. Caching strategies store files locally in users' browsers, reducing server load and speeding up subsequent visits. Security measures like HTTPS encryption and content security policies protect your app and its users from threats. Regular monitoring and optimization of your app's performance help identify and fix bottlenecks, ensuring it stays fast and reliable. By integrating these practices, developers can create production-ready React applications that are not only fast and efficient but also secure and scalable for users.
+
+
+add these main dependency further have small small dependency this phnemomen is transitive dependency 
+
+***
+ * parcel automatically works for reloading using hot module reload
+ * it follows file watching alogrithm to track chnages  then parcel cchaes is automatically created 
+ * 
+ * bundling it ,minfiing it 
+ * 
+ * image optimization is also taken care by parcel
+ * differtnial bundling 
+ * compression it wrll rename variables cleaing code 
+ * compataible with browswer
+ * // https on dev 
+ * conssistent hashing alogorithm to use caches
+ * zero config bundler
+ * //  dependecy further depending on other dependceny transaitie dependencies
+
+// browswerlist to make code compatible with older version 
+
+hooks
+
+
+
+when react works in class component when react render it does in two phases the first is render second is commit first it complets render phase it includes render and constrctor and commit is place where code is actually modified and updates dom  component did mount is called after rendeing inital phase 
+
+so if there are two childens react batches up render pahses  so  first it renders all childs 
+first parent contsrctor 
+first parent render
+first child constrour
+first child render
+second child constrctor
+second child render
+
+now render phase is finished and it updates dom now 
+in commit 
+firsy child component did mount
+second child component did mount
+parent child component did moint
+
+
+
+y we need hooks
+
+reusbility 
+modulaarity 
+managing ease 
+
+  bundline
+  lazyloading 
+  chunking
+  dynamic bundling    
+  ondemand loading        
