@@ -96,3 +96,28 @@ managing ease
   chunking
   dynamic bundling    
   ondemand loading        
+
+
+
+  create context
+
+  it creates a conttext memory 
+  and can ve compared to global variable of js  if we create any context it can be used anywhere in whole application
+
+  // redux
+
+  when we clikc a action to happen it dispact an action which calls reduces to update the slices of our store 
+  and  s
+  payload brings the infrmation of what should be updated from the action 
+
+  first we need to create a store 
+  then configure store these store contains the intiall state of slices of your application 
+  then we need to provide these store to our app because the  store is a central space and dnt have any access directly to our app so we have to provide access of store using provider the n we need to create slice to work on 
+
+     Creating a Slice
+The createSlice function from Redux Toolkit is used to create a slice. It takes a configuration object with the following properties:
+
+
+name: The name of the slice.
+initialState: The initial state of the slice.
+reducers: An object of "case reducer" functions, which handle actions and update the state.

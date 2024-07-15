@@ -2,38 +2,31 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import {useMenu} from "../utils/useMenu"
 import  useOnline  from "../utils/useOnline";
+import { additem } from "../utils/cartslice";
+import { useDispatch } from "react-redux";
 export default function Menu(){
     const { id } = useParams();  // Get the 'id' from URL params
+    const dispatch=useDispatch();
      const restaurantMenu =useMenu(id)
-    // const [restaurantMenu, setRestaurantMenu] = useState([]);
+     const handleadd=(item)=>{
+        dispatch(additem(item));
+     }
 
-    // const getMenu = async function() {
-    //     try {
-    //         const data = await fetch("https://raw.githubusercontent.com/sach2512/api_resturant/main/menu.json");
-    //         const menu = await data.json();
-    //         // Filter menu items based on the restaurant_id matching id from URL params
-    //         const filteredMenu = menu.filter(item => item.restaurant_id == id); // Use == to match string to number
-    //         setRestaurantMenu(filteredMenu);
-    //     } catch (error) {
-    //         console.error("Error fetching menu:", error);
-    //     }
-    // }
-
-    // useEffect(() => {
-    //     getMenu();
-    // }, [id]);  // Trigger useEffect whenever 'id' changes
-    const isonline = useOnline();
+const isonline = useOnline();
     if(!isonline){
         return <h1>u r offline</h1>
     }
     return (
         <div style={{ display: "flex", flexWrap: "wrap" }}>
             {
+                
                 restaurantMenu.length > 0 ? (
                     restaurantMenu.map((item, index) => (
+                        
                         <div key={index} >
-                         <div style={{ display: "flex", flexWrap: "wrap" }}>
-                         <div key={index} className="card" style={{height:"400px",width:"300px",border:"1px solid black",margin:"20px",}}>
+                         <div style={{ display: "flex", flexWrap: "wrap" }} >
+                         <div key={index} className="card w-72 h-100 p-2   border-solid border-red-300 m-14 shadow-lg bg-red-400"  >
+                         <button className="p-2 m-2 bg-green-300" onClick={()=>handleadd(item)}>add item</button>
                             <div className="card-header">
                                 <h2 className="menu-name">{item.menu_name}</h2>
                                 <p className="menu-price">Price: {item.menu_price}</p>
