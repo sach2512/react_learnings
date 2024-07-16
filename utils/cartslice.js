@@ -3,7 +3,7 @@ import  {createSlice} from "@reduxjs/toolkit"
     {
         name:"cart",
         initialState:{
-            items:["apple","banana"]
+            items:[]
         },
         // these reudcer function takes two things instial state (that is state to know whts is the current state of the comoknent) and payload 
         //An action typically has a type field, which is a string that indicates the type of action being performed,

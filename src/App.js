@@ -16,6 +16,7 @@ import ShimmerCardList from "../Components/Shimmerui";
 const Instamart = lazy(() => import("../Components/Instamart"));
 const About =lazy(()=> import("../Components/About"));
 import {Provider} from "react-redux";
+import Cart from "../Components/Cart";
 import store from "../utils/store";
 const AppLay = ({user})=>{
     
@@ -81,7 +82,13 @@ const appRouter = createBrowserRouter([
                 path:"/menu/:id",
                 element:<Menu/>,
                 errorElement:<Error/>
-            }
+            },
+            {
+                path:"/cart",
+                element:<Cart/>,
+                errorElement:<Error/>,
+                
+            },
         ]
 
         

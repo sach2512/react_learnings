@@ -11,6 +11,7 @@ export default function Menu(){
      const handleadd=(item)=>{
         dispatch(additem(item));
      }
+    
 
 const isonline = useOnline();
     if(!isonline){
@@ -27,6 +28,7 @@ const isonline = useOnline();
                          <div style={{ display: "flex", flexWrap: "wrap" }} >
                          <div key={index} className="card w-72 h-100 p-2   border-solid border-red-300 m-14 shadow-lg bg-red-400"  >
                          <button className="p-2 m-2 bg-green-300" onClick={()=>handleadd(item)}>add item</button>
+                         
                             <div className="card-header">
                                 <h2 className="menu-name">{item.menu_name}</h2>
                                 <p className="menu-price">Price: {item.menu_price}</p>

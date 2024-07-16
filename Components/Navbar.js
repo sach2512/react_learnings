@@ -23,12 +23,14 @@ export default Navbar =(props)=>{
   
                 <Link to ="/"><li className="list-none px-12 " >Home </li></Link>
                 <Link to ="/about"><li   className="list-none px-14">About</li></Link>
-               
+                
                  <Link to="/contact"> <li  className="list-none px-14" >Contact</li></Link>
                  <Link to="/instamart"> <li  className="list-none px-14" >Instamart</li></Link>
+                 <Link to="/cart"><li  className="list-none px-14" >Cart {cartdetails.length}</li></Link>
                 
                 
-                <li  className="list-none px-14" >Cart {cartdetails.length}</li>
+                
+                
                 
             </ul>
         </div>
