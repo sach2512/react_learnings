@@ -121,3 +121,37 @@ The createSlice function from Redux Toolkit is used to create a slice. It takes 
 name: The name of the slice.
 initialState: The initial state of the slice.
 reducers: An object of "case reducer" functions, which handle actions and update the state.
+
+//react router finding the path 
+
+npm i react-router-dom
+then we will get acesss to CreateBrowserRouter api from react router dom 
+now we need to createa router configuration 
+for example routingconfig = CreateBrowserRouter([
+
+])
+
+// it takes in array of object each array defineg path 
+{
+  path:"/"
+  Element:<Component/>
+  Error:<ErrorComponent/>// it is not mandatory
+}
+//now after creating configurstion we need to provide that configuration to our app 
+// RouterProvider api coming from react routrer dom gives us super power
+we need to render routerprovider to our app if now how will i app know paths
+  root.render(<RouterProvider router={browserrouterconfig}/>);
+  react router dom gives a special hook to catch the error in dom useRouteError
+  ok now you have created routes path ok now we should do router at cinet right so that they will click it 
+  if we dnt do routing all these is of no use right 
+  Link give us these power to link our routre and path provided by react router dom
+    <Link to="/accordion"><li>accordion</li></Link>
+    ok untill now its works fine but there is one proble here 
+    we will go that compnnet but in that page there will be only that componnet for examle som commninfo like navbar and footer we keepp common and we only tend to chnage body 
+    then how? this ambiuguty arrises 
+    to solve these reactrouter dom gives us a outlet inchic compknet will be filled here according to request
+    if we want somthing in between two compnent skeeping two compnents fixed
+    <component a>
+    <Outer/>
+     <component b>
+     pitfull it dnt give u hero component default need tomake a parent route / with hero component so that it loads intally once our app start
