@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import {useMenu} from "../utils/useMenu"
 import  useOnline  from "../utils/useOnline";
-import { additem } from "../utils/cartslice";
+import { additem,removeitem } from "../utils/cartslice";
 import { useDispatch } from "react-redux";
 export default function Menu(){
     const { id } = useParams();  // Get the 'id' from URL params
@@ -11,6 +11,11 @@ export default function Menu(){
      const handleadd=(item)=>{
         dispatch(additem(item));
      }
+
+     const handleremove = (menu_id) => {
+        alert(`dispatch ${menu_id}`);
+        dispatch(removeitem(menu_id));
+    };
     
 
 const isonline = useOnline();
@@ -44,11 +49,12 @@ const isonline = useOnline();
                                 >
                                     Add Item
                                 </button>
-                                <button
-                                    className="bg-red-200 text-red-700 border-none rounded px-4 py-2 cursor-pointer"
-                                >
-                                    Remove Item
-                                </button>
+                                <button className="bg-red-200 text-red-700 border-none rounded px-4 py-2 cursor-pointer" 
+                                 onClick={() => {
+                                    alert(item.menu_id); // Alert will show when button is clicked
+                                    handleremove(item.menu_id); // Remove item will be called after the alert
+                                }}>
+                                        Remove Item </button>
                             </div>
                         </div>
                     </div>

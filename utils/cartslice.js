@@ -13,7 +13,9 @@ import  {createSlice} from "@reduxjs/toolkit"
                     state.items.push(action.payload);//intial state we are pusing the action.payload (the information) we revice to array
             },
             removeitem:(state,action)=>{
-                state.items.pop(action.payload);
+              
+                let index = state.items.filter((item)=>item.menu_id!=action.payload)
+                state.items=[...index]
             },
             clearcart:(state)=>{
                    state. items=[];
@@ -22,7 +24,16 @@ import  {createSlice} from "@reduxjs/toolkit"
         }
     }
 )
+
+// cartslice={
+//     actions:{
+//         additem:
+//         clearcart
+//         removeitem
+//     },
+//     reducer:reducers
+// } //behind they might store it like these 
 // export actions and slices now our store dnt know all these  reducer so we need to put all tehse reducer in store
 
-export const { additem, removeitem, clearcart } = cartslice.actions;
+export const { additem, removeitem, clearcart } = cartslice.actions; // destrcturing 
 export default cartslice.reducer;
