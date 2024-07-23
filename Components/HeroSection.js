@@ -62,18 +62,22 @@ if(!isonline){
     <div className="container flex flex-wrap" >
         {filterdata.map((item, index) => (
             <Link to={"/menu/" + item.restaurant_id} key={index}>
-                <div className="card w-72 h-80 p-2   border-solid border-red-300 m-14 shadow-lg bg-red-400" >
-  
-                    <div className="card-header">
-                        <img src={item.restaurant_thumb} alt={item.restaurant_name} style={{ width: "100%", height: "200px" }} className="w-full h-48 object-cove" />
-                    </div>
-                    <div className="card-body">
-                      <h1 className="font-bold"> Resturant Name:{item.restaurant_name} </h1>
-                    </div>
-                    <div className="card-footer">
-                        <h1 className="font-bold"> Rating :{item.average_rating} stars</h1>
-                    </div>
-                </div>
+                <div className="card w-120 h-100 p-4 border border-red-300 m-8 shadow-xl bg-gray-100 rounded-lg">
+  <div className="card-header">
+    <img
+      src={item.restaurant_thumb}
+      alt={item.restaurant_name}
+      className="w-full h-48 object-cover rounded-t-lg"
+    />
+  </div>
+  <div className="card-body p-4">
+    <h1 className="text-lg font-semibold text-gray-800">Restaurant Name: {item.restaurant_name}</h1>
+  </div>
+  <div className="card-footer p-4 border-t border-red-300">
+    <h1 className="text-md font-semibold text-gray-600">Rating: {item.average_rating} stars</h1>
+  </div>
+</div>
+
             </Link>
         ))}
     </div>
