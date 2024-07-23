@@ -69,7 +69,7 @@ const appRouter = createBrowserRouter([
             },
             {
                 path:"/contact",
-                element:<Contact/>,
+                element:<ClassProfile/>,
                 errorElement:<Error/>
             },
             {

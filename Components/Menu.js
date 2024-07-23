@@ -18,33 +18,49 @@ const isonline = useOnline();
         return <h1>u r offline</h1>
     }
     return (
-        <div style={{ display: "flex", flexWrap: "wrap" }}>
-            {
-                
-                restaurantMenu.length > 0 ? (
-                    restaurantMenu.map((item, index) => (
-                        
-                        <div key={index} >
-                         <div style={{ display: "flex", flexWrap: "wrap" }} >
-                         <div key={index} className="card w-72 h-100 p-2   border-solid border-red-300 m-14 shadow-lg bg-red-400"  >
-                         <button className="p-2 m-2 bg-green-300" onClick={()=>handleadd(item)}>add item</button>
-                         
-                            <div className="card-header">
-                                <h2 className="menu-name">{item.menu_name}</h2>
-                                <p className="menu-price">Price: {item.menu_price}</p>
+        <div className="flex flex-wrap gap-4 p-4">
+            {restaurantMenu.length > 0 ? (
+                restaurantMenu.map((item, index) => (
+                    <div key={index} className="flex-1 min-w-[200px] max-w-[calc(25%-1rem)] mt-5">
+                        <div className="flex flex-col border-2 border-gray-700 rounded-lg overflow-hidden shadow-lg">
+                            <div className="flex-1 p-4">
+                                <div className="bg-gray-200 p-4 mb-4">
+                                    <h2 className="text-gray-800 text-lg font-semibold">{item.menu_name}</h2>
+                                    <p className="text-gray-600">Price: ${item.menu_price}</p>
+                                </div>
+                                <div className="p-4">
+                                    <img
+                                        src={item.menu_image}
+                                        alt={item.menu_name}
+                                        className="w-full h-48 object-cover"
+                                    />
+                                    <p className="mt-2 text-gray-600">{item.description}</p>
+                                </div>
                             </div>
-                            <div className="card-body">
-                                <img src={item.menu_image} alt={item.menu_name} className="menu-image" style={{width:"100%",height:"200px"}} />
-                                <p className="menu-description">{item.description}</p>
+                            <div className="flex gap-2 p-2">
+                                <button
+                                    className="bg-green-200 text-green-700 border-none rounded px-4 py-2 cursor-pointer"
+                                    onClick={() => handleadd(item)}
+                                >
+                                    Add Item
+                                </button>
+                                <button
+                                    className="bg-red-200 text-red-700 border-none rounded px-4 py-2 cursor-pointer"
+                                >
+                                    Remove Item
+                                </button>
                             </div>
                         </div>
-                            </div>
-                        </div>
-                    ))
-                ) : (
-                    <p>No menu items found for restaurant ID: {id}</p>
-                )
-            }
+                    </div>
+                ))
+            ) : (
+                <p>No menu items found for restaurant ID: {id}</p>
+            )}
         </div>
     );
+    
+    
+    
+    
+    
 }
