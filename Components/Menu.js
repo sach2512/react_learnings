@@ -13,7 +13,7 @@ export default function Menu(){
      }
 
      const handleremove = (menu_id) => {
-        alert(`dispatch ${menu_id}`);
+        
         dispatch(removeitem(menu_id));
     };
     

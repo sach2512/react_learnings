@@ -11,6 +11,8 @@ import  {createSlice} from "@reduxjs/toolkit"
         reducers:{
             additem:(state,action)=>{
                     state.items.push(action.payload);//intial state we are pusing the action.payload (the information) we revice to array
+                    
+                   
             },
             removeitem:(state,action)=>{
               
