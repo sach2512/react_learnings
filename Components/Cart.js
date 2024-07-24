@@ -18,6 +18,7 @@ export default function Cart(){
                     <div className="card-header">
                         <h2 className="menu-name">{item.menu_name}</h2>
                         <p className="menu-price">Price: {item.menu_price}</p>
+                        <p className="menu-price">quantity: {item.quantity}</p>
                     </div>
                     <div className="card-body">
                         <img src={item.menu_image} alt={item.menu_name} className="menu-image" style={{ width: "100%", height: "200px" }} />

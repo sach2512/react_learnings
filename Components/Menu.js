@@ -13,7 +13,7 @@ export default function Menu(){
      }
 
      const handleremove = (menu_id) => {
-        
+        alert(`disaptch ${menu_id}`)
         dispatch(removeitem(menu_id));
     };
     
@@ -45,10 +45,11 @@ const isonline = useOnline();
                             <div className="flex gap-2 p-2">
                                 <button
                                     className="bg-green-200 text-green-700 border-none rounded px-4 py-2 cursor-pointer"
-                                    onClick={() => handleadd(item.menu_id)}
+                                    onClick={() => handleadd(item)}
                                 >
                                     Add Item
                                 </button>
+                                
                                 <button className="bg-red-200 text-red-700 border-none rounded px-4 py-2 cursor-pointer" 
                                  onClick={() => {
                                     alert(item.menu_id); // Alert will show when button is clicked
