@@ -1,32 +1,49 @@
-import { useSelector ,} from "react-redux"
-import store from "../utils/store";
-import cartslice, { clearcart } from "../utils/cartslice";
-import { useDispatch } from "react-redux";
-export default function Cart(){
-    const cartitems = useSelector((store)=> store.cart.items)
+import { useSelector, useDispatch } from "react-redux";
+import { clearcart } from "../utils/cartslice";
+
+export default function Cart() {
+    const cartitems = useSelector((store) => store.cart.items);
     const dispatch = useDispatch();
-    console.log(cartitems);
-    function handleclear(){
-        dispatch(clearcart())
+
+    function handleclear() {
+        dispatch(clearcart());
     }
-    return(
+
+    const calculateTotalCost = () => {
+        return cartitems.reduce((total, item) => total + item.menu_price * item.quantity, 0);
+    };
+
+    return (
         <div>
-            <h1 className="text-red-300 font-extrabold text-center"> this is cart</h1>
-            <button className="p-2 m-2 bg-green-300" onClick={()=>handleclear()}>clear cart</button>
-{cartitems.map((item) => (
-                <div key={item.menu_id} className="card w-72 h-100 p-2 border-solid border-red-300 m-14 shadow-lg bg-red-400">
-                    <div className="card-header">
-                        <h2 className="menu-name">{item.menu_name}</h2>
-                        <p className="menu-price">Price: {item.menu_price}</p>
-                        <p className="menu-price">quantity: {item.quantity}</p>
-                    </div>
-                    <div className="card-body">
-                        <img src={item.menu_image} alt={item.menu_name} className="menu-image" style={{ width: "100%", height: "200px" }} />
-                        <p className="menu-description">{item.description}</p>
-                    </div>
-                </div>
-            ))}
-            
+            <h1 className="text-red-300 font-extrabold text-center">This is the cart</h1>
+            <button className="p-2 m-2 bg-green-300" onClick={handleclear}>Clear Cart</button>
+            <table className="min-w-full bg-white">
+                <thead>
+                    <tr>
+                        <th className="py-2">Image</th>
+                        <th className="py-2">Name</th>
+                        <th className="py-2">Price</th>
+                        <th className="py-2">Quantity</th>
+                        <th className="py-2">Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {cartitems.map((item) => (
+                        <tr key={item.menu_id} className="bg-gray-100">
+                            <td className="border px-4 py-2">
+                                <img src={item.menu_image} alt={item.menu_name} style={{ width: "100px", height: "100px" }} />
+                            </td>
+                            <td className="border px-4 py-2">{item.menu_name}</td>
+                            <td className="border px-4 py-2">{item.menu_price}</td>
+                            <td className="border px-4 py-2">{item.quantity}</td>
+                            <td className="border px-4 py-2">{item.menu_price * item.quantity}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+            <div className="total-cost p-2 m-2 bg-yellow-300 text-center font-bold">
+                Total Cost: {calculateTotalCost()}
+            </div>
         </div>
-    )
+    );
 }

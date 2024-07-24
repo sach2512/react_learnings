@@ -5,7 +5,7 @@ import  useOnline  from "../utils/useOnline";
 import { additem,removeitem } from "../utils/cartslice";
 import { useDispatch } from "react-redux";
 export default function Menu(){
-    const { id } = useParams();  // Get the 'id' from URL params
+    const { id } = useParams();  
     const dispatch=useDispatch();
      const restaurantMenu =useMenu(id)
      const handleadd=(item)=>{
@@ -13,7 +13,7 @@ export default function Menu(){
      }
 
      const handleremove = (menu_id) => {
-        alert(`disaptch ${menu_id}`)
+       
         dispatch(removeitem(menu_id));
     };
     
@@ -52,8 +52,8 @@ const isonline = useOnline();
                                 
                                 <button className="bg-red-200 text-red-700 border-none rounded px-4 py-2 cursor-pointer" 
                                  onClick={() => {
-                                    alert(item.menu_id); // Alert will show when button is clicked
-                                    handleremove(item.menu_id); // Remove item will be called after the alert
+                                    
+                                    handleremove(item.menu_id); 
                                 }}>
                                         Remove Item </button>
                             </div>
