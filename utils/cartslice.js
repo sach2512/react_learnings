@@ -23,7 +23,7 @@ import { stat } from "fs"
                    
                     existingitem.quantity +=1;
                 }else{
-                    state.items.push(action.payload);
+                    state.items.push({ ...newItem, quantity: 1 });
                 }
                 
                   
