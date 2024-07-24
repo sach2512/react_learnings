@@ -44,7 +44,7 @@ const appRouter = createBrowserRouter([
     
     {
         path:"/",
-        element:<AppLay name="sachin" user={{email:"sachin@gmail.com"}}/>,
+        element:<AppLay name="sachin" user={{email:"sachinjaing25@gmail.com"}}/>,
         errorElement:<Error/>,
         children:[
             {
