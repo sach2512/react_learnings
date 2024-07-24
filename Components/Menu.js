@@ -45,7 +45,7 @@ const isonline = useOnline();
                             <div className="flex gap-2 p-2">
                                 <button
                                     className="bg-green-200 text-green-700 border-none rounded px-4 py-2 cursor-pointer"
-                                    onClick={() => handleadd(item)}
+                                    onClick={() => handleadd(item.menu_id)}
                                 >
                                     Add Item
                                 </button>
